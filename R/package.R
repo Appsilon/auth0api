@@ -10,16 +10,17 @@ NULL
 
 #' Query the Auth0 Managment API
 #'
-#' This is an extremely minimal client. You need to know the API
+#' This is an extremely minimal client. You need to know the Auth0 API
 #' to query Auth0 endpoint.
 #' \itemize{
-#'   \item Try to substitute each listed parameter into
-#'     \code{endpoint}, using the \code{{param}} notation. It using glue package.
-#'   \item If a GET request (the default), then add
+#'   \item Tries to substitute each listed parameter into
+#'     \code{endpoint}, using the \code{{param}} notation.
+#'     Replaced \code{{param}} will be parsed with \code{glue} package using provided \code{...} parameters.
+#'   \item If a GET request is chosen (the default), then adds
 #'     all other listed parameters as query parameters.
-#'   \item If not a GET request, then send the other parameters
-#'     in the request body, as JSON.
-#'   \item Convert the response to an R list using
+#'   \item If not a GET request, then sends the other parameters
+#'     in the request body as JSON.
+#'   \item The response is converted to an R list using
 #'     \code{jsonlite::fromJSON}.
 #' }
 #'
@@ -32,25 +33,23 @@ NULL
 #'      \item "url", e.g. "https://auth0-org-domain.aut0.com/api/v2/users/{id}".
 #'    }
 #'
-#'    If the method is not supplied, will use \code{.method}, which defaults
-#'    to \code{GET}.
+#'    If the method is not supplied, \code{.method} parameter is used (\code{GET} by default).
 #' @param ... Name-value pairs giving API parameters. Will be matched
 #'   into \code{url} placeholders, sent as query parameters in \code{GET}
 #'   requests, and in the JSON body of \code{POST} requests.
-#' @param .auth_key Authentication token. by default \link{api_token}
-#' @param .api_url Auth0 API domain (default: \link{api_domain}).
-#'   Used if \code{endpoint} just contains a path.
+#' @param .auth_key Authentication token. Sourced by default with \link{api_token}
+#' @param .domain Auth0 API domain (default: \link{api_domain}).
+#'   Used if \code{endpoint}  contains a path only.
 #' @param .method HTTP method to use if not explicitly supplied in the
 #'    \code{endpoint}.
 #' @param .headers Named character vector of header field values
-#'   (excepting \code{Authorization}, which is handled via
+#'   (except \code{Authorization}, which is handled via
 #'   \code{.token}). This can be used to override or augment the
-#'   defaults, which are as follows: the \code{Accept} field defaults
-#'   to \code{"application/json"} and the
-#'   \code{User-Agent} field defaults to
-#'   \code{"https://github.com/Appsilon/auth0api"}. This can be used
-#'   to, e.g., provide a custom headers for special needs.
-#' @return Answer from the Auth0 API as \code{aut0_api} object
+#'   defaults, which are as follows: the \code{Accept} field set up
+#'   to \code{"application/json"} by default and the
+#'   \code{User-Agent} field \code{"https://github.com/Appsilon/auth0-api"} - default.
+#'   This can be used, e.g. to provide a custom headers for special needs.
+#' @return Response from the Auth0 API as \code{aut0_api} object
 #' @examples
 #' \dontrun{
 #' ## Get user data from Auth0 Endpoint

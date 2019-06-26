@@ -9,3 +9,8 @@ set_domain(domain)
 \description{
 Function to set AUTH0_DOMAIN env variable
 }
+\examples{
+\dontrun{
+  set_domain("https://auth0-org-domain.aut0.com")
+}
+}

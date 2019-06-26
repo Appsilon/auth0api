@@ -37,6 +37,10 @@ api_domain <- function() {
 
 #' Function to set AUTH0_DOMAIN env variable
 #'
+#' @examples
+#' \dontrun{
+#'   set_domain("https://auth0-org-domain.aut0.com")
+#' }
 #' @export
 set_domain <- function(domain) {
   Sys.setenv("AUTH0_DOMAIN" = domain)

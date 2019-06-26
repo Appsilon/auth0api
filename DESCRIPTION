@@ -10,11 +10,11 @@ Depends:
     R (>= 3.0.2),
     glue,
     httr,
-    jsonlite
+    jsonlite,
+    stringr,
+    purrr
 Imports:
     utils,
     grDevices,
-    httr,
-    glue
 Encoding: UTF-8
 RoxygenNote: 6.1.1

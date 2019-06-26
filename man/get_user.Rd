@@ -7,18 +7,23 @@
 get_user(user_id, fields = NULL, include_fields = NULL, ...)
 }
 \arguments{
-\item{user_id}{The user_id of the user to retrieve}
+\item{user_id}{The id of the user to retrieve}
 
-\item{fields}{A comma separated list of fields to include or exclude (depending on include_fields) from the result, empty to retrieve all fields}
+\item{fields}{A comma separated list of fields to include or exclude (depending on include_fields) from the result.
+If left empty then all fields are retrieved.}
 
-\item{include_fields}{true if the fields specified are to be included in the result, false otherwise. Defaults to true}
+\item{include_fields}{"true" if the fields specified are to be included in the result, "false" otherwise. Default is "true".}
 
-\item{...}{all others settings \link{auth0} settings.}
+\item{...}{other \link{auth0} settings.}
 }
 \value{
-Answer from the Auth0 API as \code{aut0_api} object.
+Response from the Auth0 API as \code{aut0_api} object.
 }
 \description{
-\url{https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id}
- This endpoint can be used to retrieve user details given the \code{user_id}.
+The endpoint: \url{https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id} can be used to retrieve user details given the \code{user_id}.
+}
+\examples{
+\dontrun{
+  get_user("google-oauth2|123123123213123123123")
+}
 }

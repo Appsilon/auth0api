@@ -87,7 +87,7 @@ make_request <- function(req) {
   if (is.null(method_fun)) stop("Unknown HTTP verb")
 
   raw <- do.call(method_fun,
-                 compact(list(url = req$url, query = req$query, body = req$body,
+                 purrr::compact(list(url = req$url, query = req$query, body = req$body,
                               add_headers(req$headers), content_type_json())))
   raw
 }
