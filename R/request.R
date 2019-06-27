@@ -1,5 +1,8 @@
-default_send_headers <- c("Accept" = "application/json",
-                          "User-Agent" = "https://github.com/Appsilon/auth0api")
+default_send_headers <- c(
+  "Accept" = "application/json",
+  "Content-Type" = "application/json",
+  "User-Agent" = "https://github.com/Appsilon/auth0api"
+)
 
 build_request <- function(
   endpoint, token, params = list(),
@@ -88,6 +91,6 @@ make_request <- function(req) {
 
   raw <- do.call(method_fun,
                  purrr::compact(list(url = req$url, query = req$query, body = req$body,
-                              add_headers(req$headers), content_type_json())))
+                              add_headers(req$headers))))
   raw
 }
