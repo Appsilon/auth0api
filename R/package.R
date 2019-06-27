@@ -70,17 +70,17 @@ auth0 <- function(endpoint, ..., .domain = NULL, .auth_key = api_token(), .metho
   )
 
   resp <- make_request(req)
-  if (http_type(resp) != "application/json") {
+  if (httr::http_type(resp) != "application/json") {
     stop("API did not return json", call. = FALSE)
   }
 
-  parsed <- jsonlite::fromJSON(content(resp, "text"), simplifyVector = FALSE)
+  parsed <- jsonlite::fromJSON(httr::content(resp, "text"), simplifyVector = FALSE)
 
-  if (http_error(resp)) {
+  if (httr::http_error(resp)) {
     stop(
       sprintf(
         "Auth0 API request failed [%s]\n%s\n<%s>",
-        status_code(resp),
+        httr::status_code(resp),
         parsed$message,
         parsed$documentation_url
       ),
@@ -98,6 +98,6 @@ auth0 <- function(endpoint, ..., .domain = NULL, .auth_key = api_token(), .metho
   )
 }
 
-aut0_api.print <- function(x, ...) {
+print.aut0_api <- function(x, ...) {
   print(x$content, ...)
 }

@@ -30,12 +30,12 @@ build_request <- function(
 
 set_endpoint <- function(req) {
   params <- req$params
-  used_params <- str_extract_all(string = req$endpoint, pattern = regex("(?<=\\{)(.*?)(?=\\})"))
+  used_params <- stringr::str_extract_all(string = req$endpoint, pattern = stringr::regex("(?<=\\{)(.*?)(?=\\})"))
   if (is.na(used_params)) {
     return(req)
   }
 
-  req$endpoint <- glue_data(params, req$endpoint)
+  req$endpoint <- glue::glue_data(params, req$endpoint)
   req$params <- params[!names(params) %in% used_params]
 
   if (!nzchar(req$endpoint)) return(req)
@@ -85,12 +85,12 @@ set_body <- function(req) {
 
 make_request <- function(req) {
 
-  method_fun <- list("GET" = GET, "POST" = POST, "PATCH" = PATCH,
-                     "PUT" = PUT, "DELETE" = DELETE)[[req$method]]
+  method_fun <- list("GET" = httr::GET, "POST" = httr::POST, "PATCH" = httr::PATCH,
+                     "PUT" = httr::PUT, "DELETE" = httr::DELETE)[[req$method]]
   if (is.null(method_fun)) stop("Unknown HTTP verb")
 
   raw <- do.call(method_fun,
                  purrr::compact(list(url = req$url, query = req$query, body = req$body,
-                              add_headers(req$headers))))
+                              httr::add_headers(req$headers))))
   raw
 }
