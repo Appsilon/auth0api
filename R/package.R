@@ -1,9 +1,16 @@
-
 #' Aut0 API Client
 #'
 #' Minimal wrapper to access Auth0 API.
 #'
 #' @docType package
+#' @import glue
+#' @import httr
+#' @importFrom purrr compact
+#' @importFrom jsonlite toJSON
+#' @importFrom jsonlite fromJSON
+#' @importFrom stringr regex
+#' @importFrom stringr str_extract_all
+#' @importFrom utils URLencode
 #' @name auth0api
 NULL
 
