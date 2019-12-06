@@ -1,7 +1,7 @@
 default_send_headers <- c(
   "Accept" = "application/json",
   "Content-Type" = "application/json",
-  "User-Agent" = "https://github.com/Appsilon/auth0api"
+  "User-Agent" = "https://github.com/Appsilon/auth0-api"
 )
 
 build_request <- function(
@@ -35,7 +35,7 @@ set_endpoint <- function(req) {
     return(req)
   }
 
-  req$endpoint <- glue::glue_data(params, req$endpoint)
+  req$endpoint <- glue_data(params, req$endpoint)
   req$params <- params[!names(params) %in% used_params]
 
   if (!nzchar(req$endpoint)) return(req)

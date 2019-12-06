@@ -6,6 +6,9 @@
 \usage{
 set_token(api_token)
 }
+\arguments{
+\item{api_token}{The Bearer API Auth0 token}
+}
 \description{
 Function to set AUTH0_API_KEY env variable
 }

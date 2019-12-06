@@ -1,11 +1,11 @@
 Package: auth0api
 Type: Package
 Title: Auth0 API Client
-Version: 0.1.0
+Version: 0.1.1
 Author: Adam Foryś
 Maintainer: Adam Foryś <adam@appsilon.com>
 Description: This package contain the set of Auth0 api endpoint.
-License: MIT
+License: MIT + file LICENSE
 Depends:
     R (>= 3.0.2),
     glue,
@@ -15,7 +15,8 @@ Depends:
     purrr
 Imports:
     utils,
-    grDevices,
-    httr
+    grDevices
+Suggests:
+    testthat
 Encoding: UTF-8
 RoxygenNote: 6.1.1

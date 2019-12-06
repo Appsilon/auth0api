@@ -19,7 +19,8 @@ get_user <- function(user_id, fields = NULL, include_fields = NULL, ...) {
 
 #' Update a user
 #'
-#'  The endpoint: \url{https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id} can be used to update user details given the \code{user_id}.
+#'  The endpoint: \url{https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id}
+#'  can be used to update user details given the \code{user_id}.
 #'
 #' @param user_id The user_id of the user to update.
 #' @param ... Parameters that should be updated in user data.
@@ -27,9 +28,9 @@ get_user <- function(user_id, fields = NULL, include_fields = NULL, ...) {
 #' @examples
 #' \dontrun{
 #' ## Update user metadata
-#' update_user("google-oauth2|123213123123123123123", user_metadata = list(key = "value"))
+#' update_user("google-oauth2|123213", user_metadata = list(key = "value"))
 #' ## Update user email_verified and user_metadata
-#' update_user("google-oauth2|123213123123123123123", user_metadata = list(key = "value"), email_verified = TRUE)
+#' update_user("google-oauth2|123213", user_metadata = list(key = "value"), email_verified = TRUE)
 #' }
 #' @export
 update_user <- function(user_id, ...) {

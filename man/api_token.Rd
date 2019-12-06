@@ -10,5 +10,5 @@ api_token()
 Auth0 API token from \code{Sys.getenv("AUTH0_API_KEY")}
 }
 \description{
-To get the application token check: `https://auth0.com/docs/api/management/v2`
+To get the application token see: `https://auth0.com/docs/api/management/v2`
 }

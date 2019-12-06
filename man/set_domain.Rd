@@ -6,6 +6,9 @@
 \usage{
 set_domain(domain)
 }
+\arguments{
+\item{domain}{Organization Auth0 domain to set.}
+}
 \description{
 Function to set AUTH0_DOMAIN env variable
 }
