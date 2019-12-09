@@ -55,6 +55,8 @@ For more information please contact forys@wit.edu.pl
 *Package development roadmap*
 
 - [ ] Add more tests :rocket:
+- [ ] Improve error message e.g. returns `Unauthorized`
+- [ ] Add CI check to the repository
 - [ ] Add verbose and debug options
 - [ ] Improve documentation
 - [ ] Create more predefined functions
