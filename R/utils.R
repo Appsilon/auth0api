@@ -93,6 +93,5 @@ generate_token <- function(client_id, client_secret, .domain = api_domain()) {
 
   set_token(parsed$access_token)
   message(glue("The new token was set in the environment."))
-  browser()
   parsed$access_token
 }
